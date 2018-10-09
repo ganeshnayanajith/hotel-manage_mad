@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Auth.LoginActivity"
-            android:theme="@style/MyTheme"></activity>
+            android:theme="@style/MyTheme" />
         <activity
             android:name=".Auth.SignUpActivity"
             android:theme="@style/MyTheme" />
@@ -31,10 +31,11 @@
         <activity
             android:name=".OrderFood.OrderFood"
             android:label="@string/title_activity_order_food"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Admin.AddFood">
 
         </activity>
-        <activity android:name=".Admin.AddFood">
+        <activity android:name=".Admin.AddLiquor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

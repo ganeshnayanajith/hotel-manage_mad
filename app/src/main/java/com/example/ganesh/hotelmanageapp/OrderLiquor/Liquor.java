@@ -3,9 +3,28 @@ package com.example.ganesh.hotelmanageapp.OrderLiquor;
 
 public class Liquor {
 
-    private String name, size, orderDateTime;
+    private String fileName;
     private int price, quantity;
     private boolean availability;
+    private String name;
+    private String size;
+    private String orderDateTime,dateTime;
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getOrderDateTime() {
+        return orderDateTime;
+    }
+
+    public void setOrderDateTime(String orderDateTime) {
+        this.orderDateTime = orderDateTime;
+    }
     //private int thumbnail;
 
 //    public void setThumbnail(int thumbnail) {
@@ -33,6 +52,14 @@ public class Liquor {
         this.size = size;
         this.price = price;
         this.availability = availability;
+    }
+
+    public Liquor(String name, String size, int price, boolean availability, String filePath) {
+        this.name = name;
+        this.size = size;
+        this.price = price;
+        this.availability = availability;
+        this.fileName = filePath;
     }
 
     public String getName() {
