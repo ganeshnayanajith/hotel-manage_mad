@@ -19,6 +19,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 
 import java.text.SimpleDateFormat;
@@ -71,7 +73,9 @@ public class LiquorAdapter extends RecyclerView.Adapter<LiquorAdapter.MyViewHold
         this.testTitle = liquor.getName();
 
         // loading album cover using Glide library
-        //  Glide.with(mContext).load(liquor.getThumbnail()).into(holder.thumbnail);
+
+        //StorageReference storageReference = FirebaseStorage.getInstance().getReference("Liquors/4a5e0a53-f77c-4141-b003-38b141d820b6");
+        Glide.with(mContext).load(liquor.getFileName()).into(holder.thumbnail);
 
         holder.overflow.setOnClickListener(new View.OnClickListener() {
             @Override

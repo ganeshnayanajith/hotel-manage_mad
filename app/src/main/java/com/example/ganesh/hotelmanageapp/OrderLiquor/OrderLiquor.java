@@ -204,7 +204,7 @@ public class OrderLiquor extends AppCompatActivity
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
 
                     Liquor liquor = ds.getValue(Liquor.class);
-                    albumList.add(new Liquor(liquor.getName(),liquor.getSize(),liquor.getPrice(),liquor.isAvailability()));
+                    albumList.add(new Liquor(liquor.getName(),liquor.getSize(),liquor.getPrice(),liquor.isAvailability(),liquor.getFileName()));
                 }
                 adapter.notifyDataSetChanged();
 

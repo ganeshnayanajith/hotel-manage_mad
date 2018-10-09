@@ -11,7 +11,13 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Auth.LoginActivity"
-            android:theme="@style/MyTheme" />
+            android:theme="@style/MyTheme" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".Auth.SignUpActivity"
             android:theme="@style/MyTheme" />
@@ -27,7 +33,9 @@
         <activity
             android:name=".OrderLiquor.OrderLiquor"
             android:label="@string/title_activity_order_liquor"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+
+        </activity>
         <activity
             android:name=".OrderFood.OrderFood"
             android:label="@string/title_activity_order_food"
@@ -36,11 +44,7 @@
 
         </activity>
         <activity android:name=".Admin.AddLiquor">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

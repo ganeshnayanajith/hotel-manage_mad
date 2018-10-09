@@ -20,6 +20,7 @@ import com.example.ganesh.hotelmanageapp.OrderLiquor.Liquor;
 import com.example.ganesh.hotelmanageapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -46,7 +47,7 @@ public class AddLiquor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_management);
+        setContentView(R.layout.activity_liquor_management);
 
         btnUpload = findViewById(R.id.btn_submit);
         mStorageref = FirebaseStorage.getInstance().getReference();
@@ -79,24 +80,31 @@ public class AddLiquor extends AppCompatActivity {
                     progressDialog.show();
 
                     randomFileName = UUID.randomUUID().toString();
-                    StorageReference sref = mStorageref.child("Liquors/" + randomFileName);
+                    final StorageReference sref = mStorageref.child("Liquors/" + randomFileName);
                     Log.i("regent","sref : " + sref);
 
                     sref.putFile(filepath).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                            Log.i("regent","DONE");
-                            foodName = fdName.getText().toString();
-                            foodSize = fdSize.getText().toString();
-                            foodPrice = Integer.parseInt(fdPrice.getText().toString());
-                            databaseReference = FirebaseDatabase.getInstance().getReference("Hotel/Liquor");
-                            Liquor fd = new Liquor(foodName, foodSize, foodPrice,true, randomFileName);
-                            databaseReference.child(foodName).setValue(fd);
-                            progressDialog.dismiss();
-                            fdName.setText("");
-                            fdPrice.setText("");
-                            fdSize.setText("");
-                            Toast.makeText(AddLiquor.this,"Done",Toast.LENGTH_SHORT);
+                            sref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    randomFileName = uri.toString();
+                                    Log.i("regent","DONE");
+                                    foodName = fdName.getText().toString();
+                                    foodSize = fdSize.getText().toString();
+                                    foodPrice = Integer.parseInt(fdPrice.getText().toString());
+                                    databaseReference = FirebaseDatabase.getInstance().getReference("Hotel/Liquor");
+                                    Liquor fd = new Liquor(foodName, foodSize, foodPrice,true, randomFileName);
+                                    databaseReference.child(foodName).setValue(fd);
+                                    progressDialog.dismiss();
+                                    fdName.setText("");
+                                    fdPrice.setText("");
+                                    fdSize.setText("");
+                                    Toast.makeText(AddLiquor.this,"Done",Toast.LENGTH_SHORT);
+                                }
+                            });
+
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
