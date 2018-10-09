@@ -17,6 +17,9 @@ import android.view.MenuItem;
 import android.content.Intent;;
 import android.widget.Button;
 
+import com.example.ganesh.hotelmanageapp.Auth.LoginActivity;
+import com.example.ganesh.hotelmanageapp.OrderLiquor.OrderLiquor;
+import com.example.ganesh.hotelmanageapp.UserHandle.UserProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -199,8 +202,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.orderLiquor) {
 
-            Intent bookingIntent=new Intent(MainActivity.this,AddLiquorActivity.class);
-            startActivity(bookingIntent);
+            Intent liquor=new Intent(MainActivity.this,OrderLiquor.class);
+            startActivity(liquor);
 
         } else if (id == R.id.viewBill) {
 

@@ -78,4 +78,5 @@
     <string name="action_example">Example action</string>
     <string name="add_liquor">Add Liquor</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_order_liquor">OrderLiquor</string>
 </resources>

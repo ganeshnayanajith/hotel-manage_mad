@@ -10,26 +10,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
-            android:theme="@style/MyTheme" />
+            android:name=".Auth.LoginActivity"
+            android:theme="@style/MyTheme">
+
+        </activity>
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Auth.SignUpActivity"
             android:theme="@style/MyTheme" />
         <activity android:name=".ResetPasswordActivity" />
-        <activity android:name=".UserProfileActivity" />
+        <activity android:name=".UserHandle.UserProfileActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RoomBookingActivity" />
+        <activity android:name=".AdminActivity" />
+        <activity android:name=".AddLiquorActivity" />
+        <activity android:name=".OrderLiquor.OrderLiquor" android:label="@string/title_activity_order_liquor" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RoomBookingActivity" />
-        <activity android:name=".AdminActivity" />
-        <activity android:name=".AddLiquorActivity"></activity>
     </application>
 
 </manifest>

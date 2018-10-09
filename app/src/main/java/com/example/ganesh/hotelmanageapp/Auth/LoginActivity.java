@@ -1,4 +1,4 @@
-package com.example.ganesh.hotelmanageapp;
+package com.example.ganesh.hotelmanageapp.Auth;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,8 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ganesh.hotelmanageapp.AdminActivity;
+import com.example.ganesh.hotelmanageapp.MainActivity;
+import com.example.ganesh.hotelmanageapp.R;
+import com.example.ganesh.hotelmanageapp.ResetPasswordActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -63,16 +66,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-        mBtnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent mainIntent=new Intent(LoginActivity.this,ResetPasswordActivity.class);
-                startActivity(mainIntent);
-            }
-        });
-
-
-
 
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +98,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+            }
+        });
+        mBtnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this,ResetPasswordActivity.class);
+                startActivity(i);
             }
         });
 
